@@ -9,17 +9,17 @@ result = 10000
 data = {"item": value}
 
 
-async def send_task(endpoint, data):
+async def send_request(endpoint, data):
     print("start coroutine")
     async with httpx.AsyncClient() as client:
         for i in range(200):
             await client.post(endpoint, json=data)
 
-async def send_request(endpoint, data):
+async def task_request(endpoint, data):
     start_time = time.time()
     tasks = []
     for i in range(50):
-        task = asyncio.create_task(send_task(endpoint, data))
+        task = asyncio.create_task(send_request(endpoint, data))
         tasks.append(task)
     for t in tasks:
         await t
@@ -38,5 +38,5 @@ def get_response(endpoint, result):
         print('not OK')
 
 if __name__ == "__main__":
-    asyncio.run(send_request(endpoint_1, data))
+    asyncio.run(task_request(endpoint_1, data))
     get_response(endpoint_2, result)
