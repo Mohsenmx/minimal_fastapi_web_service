@@ -5,7 +5,7 @@ import asyncio
 endpoint_1 = "http://127.0.0.1:8080/input"
 endpoint_2 = "http://127.0.0.1:8080/summarize"
 value = 1
-result = 10000
+result = 2000
 data = {"item": value}
 
 
