@@ -1,1 +1,1 @@
-a minimal web service written in python using flask lib
+a minimal web service written in python using fastapi lib
